@@ -4,22 +4,22 @@ import { navigation } from "../constants/index";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HambugerMenu } from "./design/Header";
-import {disablePageScroll, enablePageScroll} from 'scroll-lock'
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
 import { useState } from "react";
 const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
   const toggleNavigation = () => {
-      setOpenNavigation(!openNavigation);
-      if(openNavigation){
-        enablePageScroll()
-      }else{
-        disablePageScroll()
-      }
+    setOpenNavigation(!openNavigation);
+    if (openNavigation) {
+      enablePageScroll();
+    } else {
+      disablePageScroll();
+    }
   };
-    const handlweClick = () => {
-        if (!openNavigation) return;
-        enablePageScroll(); 
+  const handlweClick = () => {
+    if (!openNavigation) return;
+    enablePageScroll();
     setOpenNavigation(false);
   };
   return (
@@ -46,8 +46,8 @@ const Header = () => {
             {navigation.map((item) => (
               <a
                 href={item.url}
-                    key={item.id}
-                    onClick={handlweClick}
+                key={item.id}
+                onClick={handlweClick}
                 className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1
                                     
                                     ${
@@ -66,7 +66,7 @@ const Header = () => {
               </a>
             ))}
           </div>
-            <HambugerMenu />
+          <HambugerMenu />
         </nav>
 
         <a
