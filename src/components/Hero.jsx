@@ -7,6 +7,7 @@ import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
 import Generating from "./Generating";
 import Notification from "./Notification";
+import CompanyLogos from "./CompanyLogos";
 const Hero = () => {
   const parallaxRef = useRef(null);
   return (
@@ -17,7 +18,7 @@ const Hero = () => {
       crossesoffset={"lg:translate-y-[5.25rem]"}
       customPadding
     >
-<div className=" relative container" ref={parallaxRef}>
+      <div className=" relative container" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
             Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
@@ -53,11 +54,13 @@ const Hero = () => {
                   alt="AI"
                   className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]"
                 />
-                <Generating className="absolute left-4 
+                <Generating
+                  className="absolute left-4 
                             right-4 bottom-5 md:left-1/2
                             md:right-auto md:bottom-8
                             md:w-[31rem]
-                            md:-translate-x-1/2"/>
+                            md:-translate-x-1/2"
+                />
 
                 <ScrollParallax isAbsolutelyPositioned>
                   <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
@@ -69,15 +72,16 @@ const Hero = () => {
                   </ul>
                 </ScrollParallax>
                 <ScrollParallax isAbsolutelyPositioned>
-                  <Notification className="hidden absolute
+                  <Notification
+                    className="hidden absolute
                     -right-[5.5rem] bottom-[11rem] w-[18rem]
-                    xl:flex" title="Code generation"
+                    xl:flex"
+                    title="Code generation"
                   />
                 </ScrollParallax>
-
               </div>
             </div>
-            <Gradient/>
+            <Gradient />
           </div>
           <div
             className="absolute -top-[54%] left-1/2
@@ -92,10 +96,14 @@ const Hero = () => {
               height={1800}
             />
           </div>
-<BackgroundCircles parallaxRef={parallaxRef} />
+          <BackgroundCircles parallaxRef={parallaxRef} />
         </div>
+        <CompanyLogos
+          className=" hidden relative z-10 
+        mt-20 lg:block"
+        />
       </div>
-      <BottomLine/>
+      <BottomLine />
     </Section>
   );
 };
